@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "name": "task-management-backend",
+  "builds": [
+    {
+      "src": "main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "main.py"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "$DATABASE_URL",
+    "SECRET_KEY": "$SECRET_KEY",
+    "ALGORITHM": "$ALGORITHM",
+    "ACCESS_TOKEN_EXPIRE_MINUTES": "$ACCESS_TOKEN_EXPIRE_MINUTES"
+  }
+}

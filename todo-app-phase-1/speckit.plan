@@ -1,0 +1,81 @@
+# Todo Core Technical Implementation Plan
+
+## Architecture Overview
+- Single module implementation in src/main.py
+- Class-based design with TodoCore class
+- In-memory storage using a list of dictionaries for tasks
+- Type hints for all functions and class attributes
+- Enhanced data model to include priority, category, due date, and recurring patterns
+
+## Implementation Components
+
+### 1. Task Data Model
+- Use a dictionary structure for each task: {'id': int, 'title': str, 'description': str, 'status': str, 'priority': str, 'category': str, 'due_date': str, 'recurring_pattern': str, 'created_at': datetime, 'updated_at': datetime}
+- Store all tasks in a list of these dictionaries
+- Include proper type hints for all data structures
+- Implement validation for new fields (priority, due date format, recurring pattern)
+
+### 2. TodoCore Class
+- Implement the main TodoCore class with in-memory storage
+- Initialize with an empty list for tasks and an auto-incrementing ID counter
+- Implement all required methods as specified with support for new fields
+
+### 3. Required Methods
+- add_task(title: str, description: str = "", priority: str = "Medium", category: str = "", due_date: str = "", recurring_pattern: str = "") -> dict
+- view_all_tasks() -> List[dict]
+- update_task(task_id: int, title: str = None, description: str = None, priority: str = None, category: str = None, due_date: str = None, recurring_pattern: str = None) -> Optional[dict]
+- delete_task(task_id: int) -> bool
+- mark_task_completed(task_id: int) -> bool
+
+## Implementation Steps
+
+### Step 1: Set up the project structure
+- Ensure Python 3.13 is used
+- Verify uv is used for package management
+- Set up proper type hint imports
+- Import additional modules for date validation and recurring patterns
+
+### Step 2: Create the enhanced Task data model using dictionaries
+- Define the structure for each task as a dictionary with all new fields
+- Use type hints for dictionary structures
+- Implement helper functions for creating and validating task dictionaries
+- Add validation for priority (High/Medium/Low), due date format (YYYY-MM-DD), and recurring pattern (Daily/Weekly/Monthly)
+
+### Step 3: Implement the TodoCore class with enhanced list/dict storage
+- Initialize in-memory storage as a list of task dictionaries with new fields
+- Implement add_task method with auto-incrementing ID generation and new field support
+- Implement view_all_tasks method with sorting by creation date and filtering options
+- Implement update_task method with validation for all fields
+- Implement delete_task method with error handling
+- Implement mark_task_completed method with recurring task handling
+
+### Step 4: Add recurring task functionality
+- Implement logic to generate new tasks when recurring tasks are completed
+- Handle different recurring patterns (Daily/Weekly/Monthly)
+- Add appropriate helper functions for date calculations
+
+### Step 5: Add error handling and validation
+- Handle cases where tasks don't exist
+- Validate priority values (High/Medium/Low)
+- Validate due date format (YYYY-MM-DD)
+- Validate recurring pattern values (Daily/Weekly/Monthly)
+- Return appropriate success/failure indicators
+
+### Step 6: Testing
+- Create simple tests to verify each function works with new fields
+- Test edge cases like invalid IDs, invalid priority values, and invalid date formats
+- Verify type hints are correct
+- Test recurring task functionality
+
+## Dependencies
+- Python 3.13 standard library only (no external dependencies)
+- typing module for type hints
+- datetime module for timestamps and date calculations
+- re module for date format validation
+
+## In-Memory Storage Design
+- Use a list to store all task dictionaries: List[Dict[str, Union[int, str, datetime]]]
+- Each task dictionary will have keys: 'id', 'title', 'description', 'status', 'priority', 'category', 'due_date', 'recurring_pattern', 'created_at', 'updated_at'
+- Maintain an auto-incrementing counter for generating unique IDs starting from 1
+- Store tasks in the order they are created, but sort when viewing (newest first)
+- Implement proper validation for all new fields

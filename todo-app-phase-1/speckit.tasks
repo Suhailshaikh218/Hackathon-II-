@@ -1,0 +1,54 @@
+# SpeckIt Tasks Checklist - Todo Core Implementation
+
+## Phase 1: Setup and Specification
+- [x] Create specs directory
+- [x] Write todo app specification (specs/todo_core.md) - Updated with new features
+- [x] Create technical plan (speckit.plan) - Updated with new features
+- [x] Create tasks checklist (this file)
+
+## Phase 2: Implementation Setup
+- [x] Set up Python 3.13 environment
+- [x] Verify uv package management is configured
+- [x] Import necessary modules (typing, datetime, re)
+
+## Phase 3: Enhanced Data Model Implementation with Dictionaries
+- [ ] Define enhanced task structure as dictionary: {'id': int, 'title': str, 'description': str, 'status': str, 'priority': str, 'category': str, 'due_date': str, 'recurring_pattern': str, 'created_at': datetime, 'updated_at': datetime}
+- [ ] Add type hints for dictionary structures using typing.Dict and typing.Union
+- [ ] Implement helper functions for creating task dictionaries with new fields
+- [ ] Implement helper functions for validating task dictionaries with new fields
+- [ ] Add validation for priority (High/Medium/Low)
+- [ ] Add validation for due date format (YYYY-MM-DD)
+- [ ] Add validation for recurring pattern (Daily/Weekly/Monthly)
+
+## Phase 4: Core Functionality Implementation with Lists/Dictionaries
+- [ ] Create TodoCore class with enhanced functionality
+- [ ] Initialize in-memory storage as a list of task dictionaries with new fields
+- [ ] Initialize auto-incrementing ID counter starting from 1
+- [ ] Implement add_task method with auto-incrementing ID generation and new field support
+- [ ] Implement view_all_tasks method with sorting by creation date and filtering options
+- [ ] Implement update_task method with validation for all fields
+- [ ] Implement delete_task method with list manipulation
+- [ ] Implement mark_task_completed method with recurring task handling
+
+## Phase 5: Recurring Task Functionality
+- [ ] Implement logic to generate new tasks when recurring tasks are completed
+- [ ] Handle different recurring patterns (Daily/Weekly/Monthly)
+- [ ] Add helper functions for date calculations based on recurring patterns
+
+## Phase 6: Error Handling and Validation
+- [ ] Add validation for all new inputs (priority, due date, recurring pattern)
+- [ ] Handle cases where tasks don't exist
+- [ ] Return appropriate success/failure indicators
+- [ ] Test error handling scenarios for new features
+
+## Phase 7: Testing
+- [ ] Create tests for each function with new fields
+- [ ] Test edge cases like invalid IDs, invalid priority values, and invalid date formats
+- [ ] Verify type hints are correct
+- [ ] Test recurring task functionality
+- [ ] Manual testing of all new functionality
+
+## Phase 8: Documentation
+- [ ] Add docstrings to all functions
+- [ ] Update README with new functionality
+- [ ] Ensure clean code principles are followed
